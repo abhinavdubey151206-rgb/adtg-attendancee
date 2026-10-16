@@ -1,28 +1,152 @@
-/* Typography & General Resets */
+/* ==========================================================================
+   ADTG Attendance Portal - TCET AI&ML
+   Theme: Modern Academic / Production Internal Tool
+   ========================================================================== */
+
+:root {
+  --bg-canvas: #0f172a;       /* Slate 900 base */
+  --bg-surface: #1e293b;      /* Slate 800 cards */
+  --bg-subtle: #334155;       /* Slate 700 hover/dividers */
+  --border-color: #334155;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --tcet-blue: #2563eb;       /* Real institutional blue instead of neon violet */
+  --tcet-blue-hover: #1d4ed8;
+  --success: #16a34a;
+  --danger: #dc2626;
+  --warning: #d97706;
+}
+
+/* Base Reset & Crisp Human Typography */
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--bg-canvas) !important;
+  color: var(--text-primary);
+  letter-spacing: -0.011em;
 }
 
-/* Smooth Gauge Transition */
+/* Remove AI "Over-Glow" & Add Clean Institutional Borders */
+.shadow-xl, .shadow-lg {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 1px 2px -1px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Tactical, Real-World Cards (Less rounded, more structured) */
+.bg-slate-950 {
+  background-color: var(--bg-surface) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 10px !important;
+}
+
+/* Header Refinement */
+header {
+  background-color: rgba(15, 23, 42, 0.95) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+}
+
+/* Replace Neon Pill Badges with Clean Institutional Badges */
+header .h-10.w-10 {
+  background: var(--tcet-blue) !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+}
+
+/* Real-world Form Controls (Inputs & Dropdowns) */
+select, input[type="date"] {
+  background-color: #0f172a !important;
+  border: 1px solid #475569 !important;
+  border-radius: 6px !important;
+  font-weight: 500;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+select:focus, input[type="date"]:focus {
+  border-color: var(--tcet-blue) !important;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25) !important;
+  outline: none;
+}
+
+/* Human-Crafted Buttons (Tactile, Clear States) */
+button {
+  border-radius: 6px !important;
+  font-weight: 600 !important;
+  transition: all 0.12s ease-in-out !important;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+/* Action button (Commit Attendance) - Practical Blue */
+button[onclick*="saveAttendanceSession"] {
+  background-color: var(--tcet-blue) !important;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2) !important;
+}
+
+button[onclick*="saveAttendanceSession"]:hover {
+  background-color: var(--tcet-blue-hover) !important;
+}
+
+/* Attendance Toggle Controls (Present / Absent / Late) */
+.inline-flex.rounded-lg {
+  background-color: #0f172a !important;
+  border: 1px solid #334155 !important;
+  border-radius: 6px !important;
+  padding: 2px !important;
+}
+
+/* Clean Professional Table Layout */
+table {
+  border-collapse: collapse;
+}
+
+thead tr {
+  background-color: #1e293b !important;
+  border-bottom: 2px solid #334155 !important;
+}
+
+thead th {
+  text-transform: uppercase;
+  font-size: 11px !important;
+  letter-spacing: 0.05em;
+  color: #94a3b8 !important;
+  padding: 12px 16px !important;
+}
+
+tbody tr {
+  border-bottom: 1px solid #334155 !important;
+  transition: background-color 0.1s ease;
+}
+
+tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.02) !important;
+}
+
+/* Student Metric Circular Gauge */
 .gauge-circle {
-  transition: stroke-dashoffset 0.8s ease-in-out, stroke 0.4s ease;
+  transition: stroke-dashoffset 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Custom Scrollbar for Smooth UI */
+/* Standard Minimalist Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #090d16;
+  background: #0f172a;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
-  border-radius: 9999px;
+  background: #334155;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: #475569;
 }
